@@ -15,6 +15,13 @@ An unsigned build of the current continuous tag can be found here: [Continuous B
 
 Due to the nature of the build it might be unstable, however this version contains all the latest changes and bug fixes!
 
+All commits in develop branch are built by github actions. To get the build, go to [CI](https://github.com/denizt/MacPass/actions/workflows/CI.yml), choose the commit you want to download unsigned artifact of. If you want to run the builds locally, you will need to locally sign them.
+
+```bash
+codesign -fs - --deep MacPass.app
+xattr -cr MacPass.app
+```
+
 ## How to Contribute
 
 If you want to contribute by fixing a bug, adding a feature or improving localization you're awesome!
