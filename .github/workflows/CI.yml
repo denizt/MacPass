@@ -8,7 +8,11 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    strategy:
+      matrix:
+        include:
+          - xcode: "15.4"
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,12 +27,16 @@ jobs:
         run: gem install xcpretty --no-document --quiet
 
       - name: Build
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
         run: |
           set -o pipefail
           xcodebuild clean
           xcodebuild build -configuration release -project MacPass.xcodeproj -scheme MacPass CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" -derivedDataPath ./build | xcpretty -c
 
       - name: Export Localizations
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
         run: |
           xcodebuild -project MacPass.xcodeproj -exportLocalizations -localizationPath Localisations -exportLanguage de
           xcodebuild -project MacPass.xcodeproj -exportLocalizations -localizationPath Localisations -exportLanguage en
