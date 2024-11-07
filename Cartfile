@@ -1,4 +1,4 @@
 binary "https://sparkle-project.org/Carthage/Sparkle.json"
 github "denizt/TransformerKit" "29014caf0d14e543f856d7105633ce3135d4f31a"
-github "MacPass/KeePassKit" ~> 3.3.2
+github "denizt/KeePassKit" "ef639b0b9ee8e6c1897991812beda24729b86e19"
 github "mstarke/HNHUi" ~> 6.0.1

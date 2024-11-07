@@ -1,5 +1,5 @@
 binary "https://sparkle-project.org/Carthage/Sparkle.json" "2.6.4"
-github "MacPass/KeePassKit" "3.3.2"
+github "denizt/KeePassKit" "ef639b0b9ee8e6c1897991812beda24729b86e19"
 github "MacPass/KissXML" "503fc012b73a4507965019720cbf1c157e849657"
 github "denizt/TransformerKit" "29014caf0d14e543f856d7105633ce3135d4f31a"
 github "mstarke/HNHUi" "6.0.1"
